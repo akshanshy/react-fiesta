@@ -53,16 +53,10 @@ body {
 }
 
 .logo img {
-  width: 240px;
+  width: 180px;
   height: auto;
   object-fit: contain;
   padding-left: 0px;
-}
-
-@media (max-width: 768px) {
-  .logo img {
-    width: 180px;
-  }
 }
 
 .logo-text {
@@ -421,7 +415,7 @@ body.dark-mode .footer {
   --search-placeholder: #64748b;
   --search-icon: #94a3b8;
   --search-icon-focus: #3b82f6;
-  --search-hover-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --search-hover-shadow: 0 4px 16px rgba(0,  0, 0, 0.2);
   --search-focus-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
   
   --login-text: #94a3b8;
@@ -714,7 +708,6 @@ body {
 body.dark-mode .main-gallery {
   color: #fff;
 }
-
 
 /* Gallery Grid */
 .gallery {

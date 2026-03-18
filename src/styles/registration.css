@@ -1,4 +1,4 @@
-.page-registration {
+body.page-registration {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #f9f9f9, #eaeaea);
   display: flex;
@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-.page-registration .registration-box {
+body.page-registration .registration-box {
   background: #fff;
   padding: 40px 50px;
   border-radius: 15px;
@@ -17,20 +17,20 @@
   text-align: center;
 }
 
-.page-registration .registration-box h2 {
+body.page-registration .registration-box h2 {
   margin-bottom: 25px;
   font-size: 22px;
   color: #333;
   font-weight: 600;
 }
 
-.page-registration form {
+body.page-registration form {
   display: flex;
   flex-direction: column;
 }
 
-.page-registration form input,
-.page-registration form select {
+body.page-registration form input,
+body.page-registration form select {
   margin-bottom: 15px;
   padding: 12px;
   border: 1px solid #ccc;
@@ -40,13 +40,13 @@
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.page-registration form input:focus,
-.page-registration form select:focus {
+body.page-registration form input:focus,
+body.page-registration form select:focus {
   border-color: #4a90e2;
   box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
 }
 
-.page-registration button {
+body.page-registration button {
   background: #4a90e2;
   color: #fff;
   padding: 12px;
@@ -57,12 +57,12 @@
   transition: background 0.3s, transform 0.2s;
 }
 
-.page-registration button:hover {
+body.page-registration button:hover {
   background: #357ab8;
   transform: translateY(-2px);
 }
 
-.page-registration button:active {
+body.page-registration button:active {
   transform: translateY(0);
 }
 

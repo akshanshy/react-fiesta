@@ -23,7 +23,6 @@ export default function Contact() {
           className="contact-form"
           onSubmit={(e) => {
             e.preventDefault()
-            // keeping as static form (no backend yet)
           }}
         >
           <input type="text" placeholder="Your Name" required />

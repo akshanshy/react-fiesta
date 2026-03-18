@@ -1,19 +1,19 @@
 /* Login Page */
-.page-login *{
+body.page-login *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.page-login .login-container {
+body.page-login .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #0a0a1f, #30304a); /* same as signup */
+  background: linear-gradient(135deg, #0a0a1f, #30304a);
 }
 
-.page-login .login-card {
+body.page-login .login-card {
   background: #fff;
   padding: 40px;
   border-radius: 12px;
@@ -22,23 +22,23 @@
   width: 350px;
 }
 
-.page-login .login-card h2 {
+body.page-login .login-card h2 {
   margin-bottom: 10px;
-  color: #0a0a1f; /* same as signup */
+  color: #0a0a1f;
 }
 
-.page-login .login-card p {
+body.page-login .login-card p {
   color: #666;
   margin-bottom: 20px;
 }
 
-.page-login .login-form {
+body.page-login .login-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.page-login .login-form .input-group {
+body.page-login .login-form .input-group {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
@@ -47,12 +47,12 @@
   background: #f9f9f9;
 }
 
-.page-login .login-form .input-group i {
+body.page-login .login-form .input-group i {
   color: #666;
   margin-right: 10px;
 }
 
-.page-login .login-form .input-group input {
+body.page-login .login-form .input-group input {
   border: none;
   outline: none;
   background: transparent;
@@ -60,7 +60,7 @@
   font-size: 1rem;
 }
 
-.page-login .login-btn {
+body.page-login .login-btn {
   background: #0a0a1f;
   color: #fff;
   padding: 12px;
@@ -71,23 +71,23 @@
   transition: background 0.3s;
 }
 
-.page-login .login-btn:hover {
+body.page-login .login-btn:hover {
   background: #20205c;
 }
 
-.page-login .redirect-text {
+body.page-login .redirect-text {
   margin-top: 15px;
   font-size: 0.9rem;
   color: #555;
 }
 
-.page-login .redirect-text a {
+body.page-login .redirect-text a {
   color: #0a0a1f;
   font-weight: bold;
   text-decoration: none;
 }
 
-.page-login .redirect-text a:hover {
+body.page-login .redirect-text a:hover {
   text-decoration: underline;
 }
 

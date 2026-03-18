@@ -6,9 +6,7 @@ export default function Navbar() {
   const [clubsOpen, setClubsOpen] = useState(false)
   const clubsRef = useRef(null)
 
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem('theme') === 'dark'
-  })
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark')
 
   useEffect(() => {
     if (isDark) {
@@ -30,21 +28,18 @@ export default function Navbar() {
   }, [clubsOpen])
 
   function handleEventsClick(e) {
-    // preserve original behavior: smooth scroll to events with navbar offset
     if (location.pathname !== '/') return
     const el = document.getElementById('events')
     if (!el) return
     e.preventDefault()
     const navbarHeight = 100
-    const targetPosition = el.offsetTop - navbarHeight
-    window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+    window.scrollTo({ top: el.offsetTop - navbarHeight, behavior: 'smooth' })
   }
 
   return (
     <nav className="navbar">
       <div className="logo">
         <span className="logo-icon">
-          {/* If you add a.jpeg to /public, this will work */}
           <img src="/a.jpeg" alt="" />
         </span>
       </div>
@@ -56,7 +51,6 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
-          {/* Keep href style so CSS stays the same */}
           <a href="#events" className="eve" onClick={handleEventsClick}>
             <i className="fa-solid fa-calendar-days"></i> Events
           </a>

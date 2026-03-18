@@ -108,7 +108,7 @@ export default function Home() {
         <span className="close" onClick={() => setLightboxSrc(null)}>
           &times;
         </span>
-        <img className="lightbox-content" id="lightbox-img" src={lightboxSrc || ''} />
+        <img className="lightbox-content" id="lightbox-img" src={lightboxSrc || ''} alt="" />
       </div>
 
       <h2 className="join">Join The Community</h2>
