@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const location = useLocation()
@@ -7,6 +8,8 @@ export default function Navbar() {
   const clubsRef = useRef(null)
 
   const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark')
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     if (isDark) {
@@ -107,12 +110,28 @@ export default function Navbar() {
       </div>
 
       <div className="auth-buttons">
-        <Link to="/login" className="login">
-          <i className="fa-solid fa-right-to-bracket"></i> Login
-        </Link>
-        <Link to="/signup" className="signup">
-          <i className="fa-solid fa-user-plus"></i> Sign Up
-        </Link>
+       {user ? (
+  <>
+    <span style={{ marginRight: 10 }}>
+      👋 {user.name}
+    </span>
+
+    <button
+      onClick={() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        navigate("/login");
+      }}
+    >
+      Logout
+    </button>
+  </>
+) : (
+  <>
+    <Link to="/login">Login</Link>
+    <Link to="/signup">Signup</Link>
+  </>
+)}
       </div>
 
       <button

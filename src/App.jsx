@@ -9,6 +9,8 @@ import Registration from './pages/Registration.jsx'
 import Ongoing from './pages/Ongoing.jsx'
 import Upcoming from './pages/Upcoming.jsx'
 import Past from './pages/Past.jsx'
+import ProtectedRoute from "./components/ProtectedRoute";
+import Admin from "./pages/Admin";
 
 function useBodyPageClass() {
   const location = useLocation()
@@ -52,15 +54,56 @@ export default function App() {
   useBodyPageClass()
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/registration" element={<Registration />} />
-      <Route path="/ongoing" element={<Ongoing />} />
-      <Route path="/upcoming" element={<Upcoming />} />
-      <Route path="/past" element={<Past />} />
+  <Routes>
+   <Route path="/" element={<Home />} />
+   <Route path="/contact" element={<Contact />} />
+<Route path="/login" element={<Login />} />
+<Route path="/signup" element={<Signup />} />
+
+<Route
+  path="/admin"
+  element={
+    <ProtectedRoute>
+      <Admin />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/registration"
+  element={
+    <ProtectedRoute>
+      <Registration />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/ongoing"
+  element={
+    <ProtectedRoute>
+      <Ongoing />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/upcoming"
+  element={
+    <ProtectedRoute>
+      <Upcoming />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/past"
+  element={
+    <ProtectedRoute>
+      <Past />
+    </ProtectedRoute>
+  }
+/>
 
       {/* legacy html filenames */}
       <Route path="/index.html" element={<Navigate to="/" replace />} />
