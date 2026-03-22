@@ -10,7 +10,7 @@ export default function Navbar() {
   const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark')
 
   const user = JSON.parse(localStorage.getItem("user"));
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (isDark) {
       document.body.classList.add('dark-mode')
@@ -109,31 +109,38 @@ export default function Navbar() {
         <i className="fa-solid fa-magnifying-glass"></i>
       </div>
 
-      <div className="auth-buttons">
-       {user ? (
-  <>
-    <span style={{ marginRight: 10 }}>
-      👋 {user.name}
-    </span>
+   <div className="auth-buttons">
+  {user ? (
+    <>
+      <span style={{ marginRight: 10 }}>
+        👋 {user.name}
+      </span>
 
-    <button
-      onClick={() => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        navigate("/login");
-      }}
-    >
-      Logout
-    </button>
-  </>
-) : (
-  <>
-    <Link to="/login">Login</Link>
-    <Link to="/signup">Signup</Link>
-  </>
-)}
-      </div>
+      {/* 🔥 ADMIN BUTTON */}
+      {user?.role === "admin" && (
+        <Link to="/admin" style={{ marginRight: 10 }}>
+          Admin
+        </Link>
+      )}
 
+      <button
+        onClick={() => {
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+          navigate("/login");
+        }}
+      >
+        Logout
+      </button>
+    </>
+  ) : (
+    <>
+      <Link to="/login">Login</Link>
+      <Link to="/signup">Signup</Link>
+    </>
+  )}
+</div>
+     
       <button
         id="theme-toggle"
         className="theme-toggle"
