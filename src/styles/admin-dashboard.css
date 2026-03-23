@@ -1,0 +1,126 @@
+:root {
+  --ad-bg: #121828;
+  --ad-inner: #1b2544;
+  --ad-border: #2d3a68;
+  --ad-muted: #a8b2cd;
+  --ad-pill: #4b6ed6;
+  --ad-pill-hover: #3054c6;
+}
+
+.admin-dashboard {
+  padding: 30px;
+  max-width: 960px;
+  margin: auto;
+  background: linear-gradient(180deg, #f2f4fb 0%, #ffffff 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(17, 28, 70, 0.15);
+}
+
+.admin-dashboard h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #102a4b;
+  letter-spacing: 0.4px;
+}
+
+.admin-form {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e8ecf6;
+  border-radius: 14px;
+}
+
+.admin-form input {
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid #c9d6f3;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  font-size: 0.95rem;
+}
+
+.admin-form input:focus {
+  outline: none;
+  border-color: #3f5ee5;
+  box-shadow: 0 0 0 3px rgba(63, 94, 229, 0.18);
+}
+
+.admin-form button {
+  width: fit-content;
+  padding: 10px 18px;
+  border: none;
+  background: linear-gradient(135deg, var(--ad-pill), var(--ad-pill-hover));
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.admin-form button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.event-list {
+  display: grid;
+  gap: 13px;
+  margin-top: 24px;
+}
+
+.event-card {
+  padding: 16px;
+  border: 1px solid #d9e2f5;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(15, 33, 76, 0.08);
+}
+
+.event-card h3 {
+  margin-bottom: 8px;
+  color: #0f217f;
+}
+
+.event-card p {
+  margin-bottom: 6px;
+  color: #213254;
+}
+
+.card-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions button {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.card-actions button:first-child {
+  background: #e6edff;
+  color: #1a4d9e;
+}
+
+.card-actions button:first-child:hover {
+  background: #d2dffb;
+}
+
+.card-actions button:last-child {
+  background: #ffe8e8;
+  color: #ae1f1f;
+}
+
+.card-actions button:last-child:hover {
+  background: #ffcdcd;
+}
+
+.loading-state {
+  color: #405086;
+  text-align: center;
+  padding: 20px;
+}

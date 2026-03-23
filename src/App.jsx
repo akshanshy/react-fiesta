@@ -1,5 +1,5 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import Home from './pages/Home.jsx'
 import Contact from './pages/Contact.jsx'
@@ -9,12 +9,13 @@ import Registration from './pages/Registration.jsx'
 import Ongoing from './pages/Ongoing.jsx'
 import Upcoming from './pages/Upcoming.jsx'
 import Past from './pages/Past.jsx'
+import AdminDashboard from "./pages/AdminDashboard";
+
 import ProtectedRoute from "./components/ProtectedRoute";
-import Admin from "./pages/Admin";
 
 function useBodyPageClass() {
   const location = useLocation()
-
+  //const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     const path = location.pathname
     const pageClass =
@@ -51,72 +52,40 @@ function useBodyPageClass() {
 }
 
 export default function App() {
-  useBodyPageClass()
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+
+  return <AppRoutes user={user} />;
+}
+function AppRoutes({ user }) {
+  useBodyPageClass();
 
   return (
-  <Routes>
-   <Route path="/" element={<Home />} />
-   <Route path="/contact" element={<Contact />} />
-<Route path="/login" element={<Login />} />
-<Route path="/signup" element={<Signup />} />
+    <Routes>
 
-<Route
-  path="/admin"
-  element={
-    <ProtectedRoute>
-      <Admin />
-    </ProtectedRoute>
-  }
-/>
+      <Route path="/" element={<Home />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
-<Route
-  path="/registration"
-  element={
-    <ProtectedRoute>
-      <Registration />
-    </ProtectedRoute>
-  }
-/>
+      {/* 🔐 ADMIN ROUTE */}
+      <Route
+        path="/admin"
+        element={
+          user?.role === "admin"
+            ? <AdminDashboard />
+            : <Navigate to="/login" />
+        }
+      />
 
-<Route
-  path="/ongoing"
-  element={
-    <ProtectedRoute>
-      <Ongoing />
-    </ProtectedRoute>
-  }
-/>
+      {/* 🔒 PROTECTED ROUTES */}
+      <Route path="/registration" element={<ProtectedRoute><Registration /></ProtectedRoute>} />
+      <Route path="/ongoing" element={<ProtectedRoute><Ongoing /></ProtectedRoute>} />
+      <Route path="/upcoming" element={<ProtectedRoute><Upcoming /></ProtectedRoute>} />
+      <Route path="/past" element={<ProtectedRoute><Past /></ProtectedRoute>} />
 
-<Route
-  path="/upcoming"
-  element={
-    <ProtectedRoute>
-      <Upcoming />
-    </ProtectedRoute>
-  }
-/>
-
-<Route
-  path="/past"
-  element={
-    <ProtectedRoute>
-      <Past />
-    </ProtectedRoute>
-  }
-/>
-
-      {/* legacy html filenames */}
-      <Route path="/index.html" element={<Navigate to="/" replace />} />
-      <Route path="/contact.html" element={<Navigate to="/contact" replace />} />
-      <Route path="/login.html" element={<Navigate to="/login" replace />} />
-      <Route path="/signup.html" element={<Navigate to="/signup" replace />} />
-      <Route path="/registration.html" element={<Navigate to="/registration" replace />} />
-      <Route path="/ongoing.html" element={<Navigate to="/ongoing" replace />} />
-      <Route path="/upcoming.html" element={<Navigate to="/upcoming" replace />} />
-      <Route path="/past.html" element={<Navigate to="/past" replace />} />
-
+      {/* redirects */}
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  )
-}
 
+    </Routes>
+  );
+}
